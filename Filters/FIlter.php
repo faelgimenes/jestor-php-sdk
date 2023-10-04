@@ -1,4 +1,6 @@
 <?php 
+    namespace Filters\filter;
+    
     class Filter{
         private string $field;
         private string $value;

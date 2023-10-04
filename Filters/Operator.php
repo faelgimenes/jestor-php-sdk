@@ -1,4 +1,7 @@
 <?php 
+
+namespace Filters\filter;
+
 class Operator{
     const equal = "Igual";
     const like = "Contém";
