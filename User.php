@@ -1,15 +1,15 @@
 <?php 
+    include_once('Client.php');
     class User {
-        private string $token;
-        private string $org;
-        private int $token;
-        private Client $client;
+        private $token;
+        private $org;
+        private $client;
 
-        public function __construct($_token, $_org, $_depth){
+        public function __construct($_org, $_token, $_depth){
             $this->token = $_token;
             $this->org = $_org;
             $this->depth = $_depth;
-            $this->client = new Client($this->token, $this->org, $this->depth);
+            $this->client = new Client($this->org, $this->token, $this->depth);
         }
         public function get($filters = [], $limit = 100, $page = 1, $sort = null){
             $args = [
@@ -19,8 +19,8 @@
                     $page,
                     $sort
                 ]
-            ]
-            
+            ];
+
             return $this->client->jestorCallFunctions("fetchUsers", $args);
 
         }

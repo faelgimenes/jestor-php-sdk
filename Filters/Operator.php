@@ -1,7 +1,5 @@
 <?php 
 
-namespace Filters\filter;
-
 class Operator{
     const equal = "Igual";
     const like = "Contém";
@@ -21,7 +19,7 @@ class Operator{
     const between = "Entre";
     
 
-    private string $value;
+    private $value;
 
     public function __construct(string $_value){
         $this->value = $_value;

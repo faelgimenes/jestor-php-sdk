@@ -1,10 +1,10 @@
 <?php 
     class Client {
-        private string $token;
-        private string $org;
-        private int $depth;
+        private $token;
+        private $org;
+        private $depth;
 
-        public function __construct($_token, $_org, $_depth){
+        public function __construct($_org, $_token, $_depth){
             $this->token = $_token;
             $this->org = $_org;
             $this->depth = $_depth;
@@ -12,9 +12,29 @@
 
         public function jestorCallFunctions($path, $arguments = [], $files = null){
             try{
-                $headers = [];
-            }catch( Exception $e){
+                $headers = [
+                    "Accept: application/json",
+                    "Authorization: Bearer ". $this->token,
+                    "x-low-code-trigger-depth: " . $this->depth,
+                    "User-Agent: jestor-php-sdk"
+                ];
 
+                $url = "https://" . $this->org . ".api.jestor.com/v3/low-code-execution/" . $path;
+
+                $ch = curl_init();
+                
+                //grab URL and pass it to the variable.
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arguments));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $response = curl_exec($ch);                
+                
+                return $response; 
+                //return json_encode($headers);
+            }catch( Exception $e){
+                return $e->getMessage();
             }
         }
     }

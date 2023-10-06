@@ -1,21 +1,18 @@
 <?php 
-    namespace Filters\filter;
-    
     class Filter{
-        private string $field;
-        private string $value;
-        private Operator $operator;
+        private $field;
+        private $value;
+        private $operator;
 
-        public function __construct(string $_field, string $_value, Operator $_operator){
+        public function __construct ($_field, $_value, $_operator){
             $this->field = $_field;
-            $this->value = $_value
-            $this->operator = $_operator            
+            $this->value = $_value;
+            $this->operator = $_operator;
         }
 
-        public function toArray(): array{
+        public function to_array(): array{
             return [
-                'field' => $this->field,
-                'type' => $this->type,
+                'field' => $this->field,               
                 'value' => $this->value,
                 'operator' => $this->operator
             ];
