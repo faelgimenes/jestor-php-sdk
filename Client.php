@@ -1,4 +1,5 @@
 <?php 
+    include_once('Exceptions/JestorException.php');
     class Client {
         private $token;
         private $org;
@@ -29,12 +30,19 @@
                 curl_setopt($ch, CURLOPT_POST, true);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arguments));
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                $response = curl_exec($ch);                
+                $response = curl_exec($ch);  
+                $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE); 
+                
+                if ($httpcode > 299){
+                    throw new JestorException($response);
+                }
                 
                 return $response; 
                 //return json_encode($headers);
             }catch( Exception $e){
-                return $e->getMessage();
+                return $e;
+            }catch( JestorException $e){
+                return $e;
             }
         }
     }

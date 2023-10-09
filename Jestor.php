@@ -24,11 +24,7 @@
 
         public function __call($name, $arguments)
         {
-            
-            $args = [ 'arguments' => [
-                    $arguments
-                ]
-            ];
+            $args = [ 'arguments' => $arguments ];   
             return $this->client->jestorCallFunctions($name, $args);
         }
     }
