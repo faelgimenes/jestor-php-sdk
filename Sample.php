@@ -3,7 +3,7 @@ include_once('Jestor.php');
 include_once('Filters/Filter.php');
 include_once('Filters/Operator.php');
 
-$jestor = new Jestor("belnuovo", "Nzk4NTRkMTMzNjFjMDI48aa1fa7516MTY1NzU0MzkyODc4ZDM5", 0);
+$jestor = new Jestor("", "", 0);
 
 //Exemplo GET
 //  $filter = new Filter("name", "novo record", "==");
