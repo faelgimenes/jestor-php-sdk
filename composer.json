@@ -1,3 +1,19 @@
 {
-    "name": "jestor/sdk"
+    "name": "jestor/sdk",
+    "type": "library",
+    "description": "Execute libraries from Jestor0",
+    "keywords": ["jestor"],
+    "homepage": "https://github.com/Jestor-Tecnologia/php-sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vinícius Belnuovo",
+            "email": "vinicius.belnuovo@jestor.com",
+            "homepage": "https://jestor.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.3.0"
+    }
 }
