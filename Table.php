@@ -40,6 +40,19 @@
             return $this->client->jestorCallFunctions("createObject", $args);
         }
 
+        public function update($recordId, $data){
+            $data["id_". $this->tableName] = $recordId;
+            //array_push($data, ["id_". $this->tableName => $recordId ]);
+            $args = [ 'arguments' => [
+                    $this->tableName,
+                    $data,
+                    null
+                ]
+            ];
+            //return $args;
+            return $this->client->jestorCallFunctions("updateObject", $args);
+        }
+
         public function delete($recordId){
             $args = [ 'arguments' => [
                     $this->tableName,

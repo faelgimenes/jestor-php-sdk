@@ -1,6 +1,7 @@
 <?php 
     include_once('Table.php');
     include_once('User.php');
+    include_once('File.php');
     class Jestor{
         private $token;
         private $org;
@@ -20,6 +21,10 @@
 
         public function user() : User{
             return new User($this->org, $this->token, $this->depth);
+        }
+
+        public function file($_table, $_field, $_id) : File{
+            return new File($this->org, $this->token, $this->depth, $_table, $_field, $_id);
         }
 
         public function __call($name, $arguments)
