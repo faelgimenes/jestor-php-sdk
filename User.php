@@ -37,9 +37,9 @@
             ];
 
             return $this->client->jestorCallFunctions("createUser", $args);
-        }
+        }        
 
-        public function inactiveUser($userId){
+        public function inactivateUser($userId){
             $args = [
                 'arguments' => [
                     $userId
