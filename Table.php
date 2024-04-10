@@ -15,7 +15,7 @@
             $this->client = new Client($this->org, $this->token,$this->depth);
         }
 
-        public function get($filters = [], $limit = 100, $page = 1, $sort = null, $fields_to_select = null, $fetch_type = 'single', $conjuction = 'AND' ){
+        public function get($filters = [], $limit = 100, $page = 1, $sort = null, $fields_to_select = null, $fetch_type = 'single', $operator = 'AND' ){
             $args = [ 'arguments' => [
                     $this->tableName,
                     $filters,
@@ -24,7 +24,7 @@
                     $sort,
                     $fields_to_select,
                     $fetch_type, 
-                    $conjuction
+                    $operator
                 ]
             ];
 
