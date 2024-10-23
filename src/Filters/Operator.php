@@ -1,6 +1,9 @@
-<?php 
+<?php
 
-class Operator{
+namespace Jestor\Filters;
+
+class Operator
+{
     const equal = "Igual";
     const like = "Contém";
     const notEqual = "Diferente";
@@ -17,16 +20,17 @@ class Operator{
     const lessThan = "Menor que";
     const lessOrEqualThan = "Menor ou igual que";
     const between = "Entre";
-    
+
 
     private $value;
 
-    public function __construct(string $_value){
+    public function __construct(string $_value)
+    {
         $this->value = $_value;
     }
 
-    public function value(): string{
+    public function value(): string
+    {
         return $this->value;
     }
 }
-?>
